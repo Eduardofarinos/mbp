@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Juego de Rol</title>
+    <link rel="stylesheet" href="../public/stylesheets/stylerol.css">
+    <script type="text/javascript" src="dist/paper-full.js"></script>
+    <script type="text/paperscript" canvas="canvas">
+       var myPath;
+	   
+	   var pj1 = new Raster('retrato2.png');
+	   pj1.scale(0.5);
+	   pj1.position.x +=100;
+	   pj1.position.y +=100;
+	   var pj2 = new Raster('retrato3.png');
+	   pj2.scale(0.5);
+	   pj2.position.x +=200;
+	   pj2.position.y +=100;
+	   var pj3 = new Raster('retrato4.png');
+	   pj3.scale(0.5);
+	   pj3.position.x +=300;
+	   pj3.position.y +=100;
+
+	    function onMouseDown(event) {
+			myPath = new Path();
+			myPath.strokeColor = 'black';
+		}
+
+		function onMouseDrag(event) {
+			if(pj1.bounds.contains(event.point)) {
+				pj1.position = event.point; 
+			}
+			else if(pj2.bounds.contains(event.point)) {
+				pj2.position = event.point; 
+			}
+			else if(pj3.bounds.contains(event.point)) {
+				pj3.position = event.point; 
+			}
+			else{
+				myPath.add(event.point);
+			}
+		}
+    </script>
+</head>
+<body>
+    <canvas id="canvas" resize stats hidpi="off"></canvas>
+	<h1> esto hace algo?</h1>
+</body>
+</html>
